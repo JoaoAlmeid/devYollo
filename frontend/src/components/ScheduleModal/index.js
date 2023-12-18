@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 
 import * as Yup from "yup";
 import { Formik, Form, Field } from "formik";
 import { toast } from "react-toastify";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { green } from "@material-ui/core/colors";
@@ -65,7 +65,7 @@ const ScheduleSchema = Yup.object().shape({
 
 const ScheduleModal = ({ open, onClose, scheduleId, contactId, cleanContact, reload }) => {
 	const classes = useStyles();
-	const history = useHistory();
+	const history = useNavigate();
 	const { user } = useContext(AuthContext);
 
 	const initialState = {

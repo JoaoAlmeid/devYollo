@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -35,7 +35,7 @@ const filterOptions = createFilterOptions({
 });
 
 const TransferTicketModalCustom = ({ modalOpen, onClose, ticketid }) => {
-  const history = useHistory();
+  const history = useNavigate();
   const [options, setOptions] = useState([]);
   const [queues, setQueues] = useState([]);
   const [allQueues, setAllQueues] = useState([]);

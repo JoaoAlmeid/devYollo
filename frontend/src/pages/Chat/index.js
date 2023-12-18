@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import {
   Button,
@@ -151,7 +151,7 @@ export function ChatModal({
 function Chat(props) {
   const classes = useStyles();
   const { user } = useContext(AuthContext);
-  const history = useHistory();
+  const history = useNavigate();
 
   const [showDialog, setShowDialog] = useState(false);
   const [dialogType, setDialogType] = useState("new");

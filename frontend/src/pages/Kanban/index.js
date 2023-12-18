@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useReducer, useContext, useCallback } from "react";
+import { useState, useEffect, useReducer, useContext, useCallback } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import api from "../../services/api";
 import { AuthContext } from "../../context/Auth/AuthContext";
 import Board from 'react-trello';
 import { toast } from "react-toastify";
 import { i18n } from "../../translate/i18n";
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { socketConnection } from "../../services/socket";
 
 const useStyles = makeStyles(theme => ({
@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
 
 const Kanban = () => {
   const classes = useStyles();
-  const history = useHistory();
+  const history = useNavigate();
 
   const [tags, setTags] = useState([]);
   const [reloadData, setReloadData] = useState(false);

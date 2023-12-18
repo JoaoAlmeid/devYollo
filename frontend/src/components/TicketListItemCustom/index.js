@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 
-import { useHistory, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { parseISO, format, isSameDay } from "date-fns";
 import clsx from "clsx";
 
@@ -186,7 +186,7 @@ const useStyles = makeStyles((theme) => ({
   {/*PLW DESIGN INSERIDO O dentro do const handleChangeTab*/}
   const TicketListItemCustom = ({ ticket }) => {
   const classes = useStyles();
-  const history = useHistory();
+  const history = useNavigate();
   const [loading, setLoading] = useState(false);
   const [ticketUser, setTicketUser] = useState(null);
   const [ticketQueueName, setTicketQueueName] = useState(null);

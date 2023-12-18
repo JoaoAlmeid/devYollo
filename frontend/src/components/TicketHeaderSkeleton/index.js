@@ -1,5 +1,3 @@
-import React from "react";
-
 import { makeStyles } from "@material-ui/core/styles";
 import { Avatar, Card, CardHeader } from "@material-ui/core";
 import Skeleton from "@material-ui/lab/Skeleton";

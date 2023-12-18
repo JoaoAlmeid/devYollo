@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { has, isArray } from "lodash";
 
 import { toast } from "react-toastify";
@@ -10,7 +10,7 @@ import toastError from "../../errors/toastError";
 import { socketConnection } from "../../services/socket";
 import moment from "moment";
 const useAuth = () => {
-  const history = useHistory();
+  const history = useNavigate();
   const [isAuth, setIsAuth] = useState(false);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});

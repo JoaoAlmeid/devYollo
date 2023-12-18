@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useContext, useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
@@ -141,7 +141,7 @@ const useStyles = makeStyles(theme => ({
 
 const TicketsManagerTabs = () => {
   const classes = useStyles();
-  const history = useHistory();
+  const history = useNavigate();
 
   const [searchParam, setSearchParam] = useState("");
   const [tab, setTab] = useState("open");

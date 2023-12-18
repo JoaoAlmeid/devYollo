@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { toast } from "react-toastify";
 import api from "../../services/api";
@@ -11,7 +11,7 @@ import {
   DialogActions,
   makeStyles,
 } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/Auth/AuthContext";
 import MessagesList from "../MessagesList";
 import { ReplyMessageProvider } from "../../context/ReplyingMessage/ReplyingMessageContext";
@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function TicketMessagesDialog({ open, handleClose, ticketId }) {
-  const history = useHistory();
+  const history = useNavigate();
   const classes = useStyles();
 
   const { user } = useContext(AuthContext);

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import toastError from "../../errors/toastError";
 
 import { Button, Divider, Typography} from "@material-ui/core";

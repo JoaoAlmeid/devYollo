@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import qs from 'query-string'
 
 import * as Yup from "yup";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Link as RouterLink } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Formik, Form, Field } from "formik";
@@ -74,7 +74,7 @@ const UserSchema = Yup.object().shape({
 
 const SignUp = () => {
 	const classes = useStyles();
-	const history = useHistory();
+	const history = useNavigate();
 	let companyId = null
 
 	const params = qs.parse(window.location.search)

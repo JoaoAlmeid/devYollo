@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 
-import React, { useState, useEffect, useReducer } from "react";
+import { useState, useEffect, useReducer } from "react";
 import { toast } from "react-toastify";
 
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
@@ -98,7 +98,7 @@ const useStyles = makeStyles((theme) => ({
 const Campaigns = () => {
   const classes = useStyles();
 
-  const history = useHistory();
+  const history = useNavigate();
 
   const [loading, setLoading] = useState(false);
   const [pageNumber, setPageNumber] = useState(1);

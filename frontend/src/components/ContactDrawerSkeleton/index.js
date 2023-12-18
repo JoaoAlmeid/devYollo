@@ -1,4 +1,3 @@
-import React from "react";
 import Skeleton from "@material-ui/lab/Skeleton";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";

@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useReducer, useContext } from "react";
+import { useState, useEffect, useReducer, useContext } from "react";
 
 import { toast } from "react-toastify";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
@@ -94,7 +94,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Contacts = () => {
   const classes = useStyles();
-  const history = useHistory();
+  const history = useNavigate();
 
   const { user } = useContext(AuthContext);
 

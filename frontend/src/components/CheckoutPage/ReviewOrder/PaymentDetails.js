@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import {useContext} from 'react';
 import { Typography, Grid } from '@material-ui/core';
 import useStyles from './styles';
 import { AuthContext } from "../../../context/Auth/AuthContext";

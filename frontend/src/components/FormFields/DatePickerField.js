@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useField } from 'formik';
 import Grid from '@material-ui/core/Grid';
 import {

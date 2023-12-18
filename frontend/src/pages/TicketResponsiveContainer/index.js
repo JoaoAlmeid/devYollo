@@ -1,4 +1,3 @@
-import React from "react";
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
 
 import Tickets from "../TicketsCustom"

@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
 import { toast } from "react-toastify";
 import clsx from "clsx";
@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Ticket = () => {
   const { ticketId } = useParams();
-  const history = useHistory();
+  const history = useNavigate();
   const classes = useStyles();
 
   const { user } = useContext(AuthContext);

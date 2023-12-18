@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Button, TextField, DialogContent, DialogActions, Grid } from '@material-ui/core';
 import PropType from 'prop-types'
 import Dialog from '../Dialog';

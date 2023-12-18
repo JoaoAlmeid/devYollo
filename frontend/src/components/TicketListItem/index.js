@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 
-import { useHistory, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { parseISO, format, isSameDay } from "date-fns";
 import clsx from "clsx";
 
@@ -103,7 +103,7 @@ const useStyles = makeStyles((theme) => ({
 
 const TicketListItem = ({ ticket }) => {
   const classes = useStyles();
-  const history = useHistory();
+  const history = useNavigate();
   const [loading, setLoading] = useState(false);
   const { ticketId } = useParams();
   const isMounted = useRef(true);

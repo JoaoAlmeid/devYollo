@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { format } from "date-fns";
 import { socketConnection } from "../../services/socket";
 
@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
 const NotificationsPopOver = () => {
 	const classes = useStyles();
 
-	const history = useHistory();
+	const history = useNavigate();
 	const { user } = useContext(AuthContext);
 	const ticketIdUrl = +history.location.pathname.split("/")[2];
 	const ticketIdRef = useRef(ticketIdUrl);

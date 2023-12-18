@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import {
   Chip,
   IconButton,
@@ -9,7 +9,7 @@ import {
   makeStyles,
 } from "@material-ui/core";
 
-import { useHistory, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../context/Auth/AuthContext";
 import { useDate } from "../../hooks/useDate";
 
@@ -52,7 +52,7 @@ export default function ChatList({
   loading,
 }) {
   const classes = useStyles();
-  const history = useHistory();
+  const history = useNavigate();
   const { user } = useContext(AuthContext);
   const { datetimeToClient } = useDate();
 

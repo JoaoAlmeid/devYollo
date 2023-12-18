@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { at } from 'lodash';
 import { useField } from 'formik';

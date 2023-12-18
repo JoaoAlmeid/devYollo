@@ -1,4 +1,4 @@
-import React, {
+import {
   useState,
   useEffect,
   useReducer,
@@ -7,7 +7,7 @@ import React, {
 } from "react";
 
 import { toast } from "react-toastify";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
@@ -103,7 +103,7 @@ const ContactListItems = () => {
 
   const { user } = useContext(AuthContext);
   const { contactListId } = useParams();
-  const history = useHistory();
+  const history = useNavigate();
 
   const [loading, setLoading] = useState(false);
   const [pageNumber, setPageNumber] = useState(1);

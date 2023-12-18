@@ -1,11 +1,11 @@
-import React, { useState, useEffect, createContext } from "react";
-import { useHistory } from "react-router-dom";
+import { useState, useEffect, createContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 const TicketsContext = createContext();
 
 const TicketsContextProvider = ({ children }) => {
 	const [currentTicket, setCurrentTicket] = useState({ id: null, code: null });
-    const history = useHistory();
+    const history = useNavigate();
 
     useEffect(() => {
         if (currentTicket.id !== null) {
