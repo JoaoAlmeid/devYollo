@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import express from "express";
 import * as Yup from "yup";
 import Gerencianet from "gn-api-sdk-typescript";
 import AppError from "../errors/AppError";
@@ -7,11 +6,9 @@ import AppError from "../errors/AppError";
 import options from "../config/Gn";
 import Company from "../models/Company";
 import Invoices from "../models/Invoices";
-import Subscriptions from "../models/Subscriptions";
+//import Subscriptions from "../models/Subscriptions";
 import { getIO } from "../libs/socket";
-import UpdateUserService from "../services/UserServices/UpdateUserService";
-
-const app = express();
+//import UpdateUserService from "../services/UserServices/UpdateUserService";
 
 
 export const index = async (req: Request, res: Response): Promise<Response> => {
@@ -24,7 +21,7 @@ export const createSubscription = async (
   res: Response
   ): Promise<Response> => {
     const gerencianet = Gerencianet(options);
-    const { companyId } = req.user;
+    //const { companyId } = req.user;
 
   const schema = Yup.object().shape({
     price: Yup.string().required(),
@@ -38,16 +35,7 @@ export const createSubscription = async (
   }
 
   const {
-    firstName,
     price,
-    users,
-    connections,
-    address2,
-    city,
-    state,
-    zipcode,
-    country,
-    plan,
     invoiceId
   } = req.body;
 
@@ -146,7 +134,7 @@ export const webhook = async (
   req: Request,
   res: Response
   ): Promise<Response> => {
-  const { type } = req.params;
+  //const { type } = req.params;
   const { evento } = req.body;
   if (evento === "teste_webhook") {
     return res.json({ ok: true });
@@ -164,7 +152,7 @@ export const webhook = async (
         const invoices = await Invoices.findByPk(invoiceID);
         const companyId =invoices.companyId;
         const company = await Company.findByPk(companyId);
-    
+
         const expiresAt = new Date(company.dueDate);
         expiresAt.setDate(expiresAt.getDate() + 30);
         const date = expiresAt.toISOString().split("T")[0];
