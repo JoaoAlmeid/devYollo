@@ -30,7 +30,7 @@ class Schedule extends Model<Schedule> {
   body: string;
 
   @Column({
-    type: DataType.DATE,
+    type: DataType.STRING,
   })
   sendAt: Date;
 

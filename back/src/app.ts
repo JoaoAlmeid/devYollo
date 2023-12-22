@@ -2,6 +2,7 @@ require('dotenv').config();
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import * as Sentry from "@sentry/node";
+// import { ProfilingIntegration } from '@sentry/profiling-node';
 import express from 'express';
 
 import "./database";
@@ -24,6 +25,8 @@ Sentry.init({
         new Sentry.Integrations.Http({ tracing: true }),
         // enable Express.js middleware tracing
         new Sentry.Integrations.Express({ app }),
+
+        //new ProfilingIntegration()
     ],
 })
 
@@ -36,6 +39,10 @@ app.use(
 app.use(cookieParser());
 app.use(express.json());
 app.use("/public", express.static(uploadConfig.directory));
+
+app.use(Sentry.Handlers.requestHandler());
+app.use(Sentry.Handlers.tracingHandler());
+app.use(Sentry.Handlers.errorHandler());
 
 
 app.use(async (err, req, res, next) => {

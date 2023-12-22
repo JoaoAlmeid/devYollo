@@ -46,9 +46,10 @@ app.use(
 );
 app.use(cookieParser());
 app.use(express.json());
+app.use("/public", express.static(uploadConfig.directory));
+
 app.use(Sentry.Handlers.requestHandler());
 app.use(Sentry.Handlers.tracingHandler());
-app.use("/public", express.static(uploadConfig.directory));
 app.use(routes);
 
 app.use(Sentry.Handlers.errorHandler());

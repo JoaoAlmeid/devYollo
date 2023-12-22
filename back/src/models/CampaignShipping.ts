@@ -18,7 +18,7 @@ class CampaignShipping extends Model<CampaignShipping> {
   @PrimaryKey
   @AutoIncrement
   @Column({
-    type: DataType.INTEGER,
+    type: DataType.NUMBER,
   })
   id: number;
 

@@ -1,9 +1,12 @@
-import Redis from "ioredis";
-import { REDIS_URI_CONNECTION } from "../config/redis";
+// import Redis from "ioredis";
+import { connection } from "../config/redis";
 import util from "util";
 import * as crypto from "crypto";
 
-const redis = new Redis(REDIS_URI_CONNECTION);
+const { createClient } = require('redis');
+export const client = createClient(connection);
+
+// const redis = new Redis(REDIS_URI_CONNECTION);
 
 function encryptParams(params: any) {
     const str = JSON.stringify(params);
@@ -40,7 +43,7 @@ export function getFromParams(key: string, params: any) {
     option?: string,
     optionValue?: string | number
   ) {
-    const setPromisefy = util.promisify(redis.set).bind(redis);
+    const setPromisefy = util.promisify(client.set).bind(client);
     if (option !== undefined && optionValue !== undefined) {
       return setPromisefy(key, value, option, optionValue);
     }
@@ -49,17 +52,17 @@ export function getFromParams(key: string, params: any) {
   }
   
   export function get(key: string) {
-    const getPromisefy = util.promisify(redis.get).bind(redis);
+    const getPromisefy = util.promisify(client.get).bind(client);
     return getPromisefy(key);
   }
   
   export function getKeys(pattern: string) {
-    const getKeysPromisefy = util.promisify(redis.keys).bind(redis);
+    const getKeysPromisefy = util.promisify(client.keys).bind(client);
     return getKeysPromisefy(pattern);
   }
   
   export function del(key: string) {
-    const delPromisefy = util.promisify(redis.del).bind(redis);
+    const delPromisefy = util.promisify(client.del).bind(client);
     return delPromisefy(key);
   }
   
